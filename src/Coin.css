@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+.title {
+  padding: 1rem;
+}
+
+.subtitle, a {
+  color: gray;
+  margin-bottom: 0.5rem;
+}
+
+.search {
+  border: 1px solid white;
+  background: black;
+  color: white;
+  padding: .5rem 1rem;
+  margin: 1rem;
+}
+
+.labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  color: lightgray;
+  font-size: 12px;
+}
+
+.labels * {
+  margin: 0 4.7rem;
+}
+
+.labels-name {
+  margin-right: auto;
+}
+
+.coin-row {
+  border-top: solid white 1px;
+  padding: 1rem;
+  margin: 0.5rem 2rem;
+}
+
+.coin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.coin * {
+  margin: 0 3rem;
+}
+
+img {
+  height: 100%;
+  max-width: 5rem;
+}
+
+.coin-name {
+  font-weight: 700;
+  margin-right: auto;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+@media (max-width: 850px) {
+  .coin {
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    padding: 0.5rem;
+  }
+  .coin div, .coin p {
+    padding: 0.5rem;
+  }
+  .labels {
+    display: none;
+  }
+}
+/*# sourceMappingURL=Coin.css.map */
