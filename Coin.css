@@ -6,8 +6,7 @@
 
 body {
   color: white;
-  margin: 5rem;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-family: "Roboto", sans-serif;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0.9))), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2380F'/%3E%3Cstop offset='1' stop-color='%23f40'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='24' height='24' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23181a1b' cx='12' cy='12' r='12'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.1'/%3E%3C/svg%3E");
   background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2380F'/%3E%3Cstop offset='1' stop-color='%23f40'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='24' height='24' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23181a1b' cx='12' cy='12' r='12'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.1'/%3E%3C/svg%3E");
@@ -17,13 +16,34 @@ body {
 
 .title {
   padding: 1rem;
+  font-size: 2.5rem;
   color: white;
+  white-space: nowrap;
 }
 
 .subtitle,
 a {
   color: gray;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+
+h2 {
+  float: left;
+  padding: 1rem;
+}
+
+.coin-sort {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(2rem, 1fr))[6];
+      grid-template-columns: repeat(6, minmax(2rem, 1fr));
+  float: left;
+}
+
+.coin-search {
+  float: right;
+  margin-right: 8rem;
 }
 
 .search {
@@ -34,46 +54,80 @@ a {
   margin: 1rem;
 }
 
-.coin-sort {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(5rem, 1fr))[5];
-      grid-template-columns: repeat(5, minmax(5rem, 1fr));
-  border-top: solid white 1px;
+.coin-container,
+.trend-container {
+  width: 75%;
+  margin: auto;
 }
 
-.coin {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(5rem, 1fr))[5];
-      grid-template-columns: repeat(5, minmax(5rem, 1fr));
-  border-top: solid white 1px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+.trend-container {
+  border: solid white 1px;
+  width: 50%;
 }
 
-.coin div {
+.coin,
+.trend {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(5rem, 1fr))[6];
+      grid-template-columns: repeat(6, minmax(5rem, 1fr));
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: solid white 1px;
+  width: 80vw;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.trend {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(3rem, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(3rem, 1fr));
+  width: 40vw;
+  border: hidden;
+}
+
+.coin:hover,
+.trend:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(124, 90, 90, 0.2)));
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(124, 90, 90, 0.2));
+}
+
+.coin div,
+.trend div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  white-space: nowrap;
+  margin: 0 0.5rem;
+  overflow: hidden;
 }
 
-.coin-image {
-  height: 35%;
-  max-width: 5rem;
-  margin: 15px;
+.coin-image,
+.trend-image {
+  height: 15%;
+  max-width: 2.5rem;
+  margin-right: 15px;
 }
 
-.coin-symbol {
+.coin-name,
+.trend-name {
+  width: 100%;
+  padding: 1rem;
+}
+
+.coin-symbol,
+.trend-symbol {
   text-transform: uppercase;
-  margin: 25px;
 }
 
-.coin p {
+.coin p,
+.trend p {
   color: gray;
   font-weight: 300;
   margin: 5px;
@@ -85,5 +139,30 @@ a {
 
 .green {
   color: green;
+}
+
+@media (max-width: 1500px) {
+  .coin-container {
+    border-bottom: solid gray 1px;
+  }
+  .coin {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1rem;
+  }
+  .coin div {
+    padding: 0.5rem;
+  }
+  .coin-symbol {
+    text-align: center;
+  }
 }
 /*# sourceMappingURL=Coin.css.map */

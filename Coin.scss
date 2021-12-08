@@ -7,9 +7,8 @@
 
 body {
   color: white;
-  margin: 5rem;
 
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-family: "Roboto", sans-serif;
 
   background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)),
@@ -21,18 +20,38 @@ body {
 
 // HEADER SECTION
 
-.header {
-}
-
 .title {
   padding: 1rem;
+  font-size: 2.5rem;
   color: white;
+  white-space: nowrap;
 }
 
 .subtitle,
 a {
   color: gray;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+
+// MAIN SECTION
+
+h2 {
+  float: left;
+  padding: 1rem;
+}
+
+// COINS
+
+.coin-sort {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(2rem, 1fr));
+  float: left;
+}
+
+.coin-search {
+  float: right;
+  margin-right: 8rem;
 }
 
 .search {
@@ -43,42 +62,69 @@ a {
   margin: 1rem;
 }
 
-// MAIN SECTION
-
-// TRENDING
-
-// COINS
-
-.coin-sort {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(5rem, 1fr));
-  border-top: solid white 1px;
+.coin-container,
+.trend-container {
+  width: 75%;
+  margin: auto;
 }
 
-.coin {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(5rem, 1fr));
-  border-top: solid white 1px;
-  width: max-content;
+.trend-container {
+  border: solid white 1px;
+  width: 50%;
 }
 
-.coin div {
+.coin,
+.trend {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(5rem, 1fr));
+  align-items: center;
+  border-top: solid white 1px;
+  width: 80vw;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.trend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(3rem, 1fr));
+  width: 40vw;
+  border: hidden;
+}
+
+.coin:hover,
+.trend:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(124, 90, 90, 0.2));
+}
+
+.coin div,
+.trend div {
   display: flex;
   align-items: center;
+  white-space: nowrap;
+  margin: 0 0.5rem;
+  overflow: hidden;
 }
 
-.coin-image {
-  height: 35%;
-  max-width: 5rem;
-  margin: 15px;
+.coin-image,
+.trend-image {
+  height: 15%;
+  max-width: 2.5rem;
+  margin-right: 15px;
 }
 
-.coin-symbol {
+.coin-name,
+.trend-name {
+  width: 100%;
+  padding: 1rem;
+}
+
+.coin-symbol,
+.trend-symbol {
   text-transform: uppercase;
-  margin: 25px;
 }
 
-.coin p {
+.coin p,
+.trend p {
   color: gray;
   font-weight: 300;
   margin: 5px;
@@ -91,16 +137,23 @@ a {
   color: green;
 }
 
-// @media (max-width: 950px) {
-//   .coin {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: 1rem;
-//   }
+@media (max-width: 1500px) {
+  .coin-container {
+    border-bottom: solid gray 1px;
+  }
 
-//   .coin div {
-//     padding: 0.5rem;
-//     border-bottom: solid gray 1px;
-//   }
-// }
+  .coin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .coin div {
+    padding: 0.5rem;
+  }
+
+  .coin-symbol {
+    text-align: center;
+  }
+}
